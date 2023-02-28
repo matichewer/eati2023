@@ -1,0 +1,22 @@
+name: First
+on: [ "push" ]
+
+# los jobs corren todos en paralelo
+jobs:
+  job1:
+    name: 'Mi primer job'
+
+    # cada job puede ejecutarse en el SO que yo quiera
+    runs-on: ubuntu-latest
+
+    # pasos que queremos q se ejecuten
+    steps: 
+      - name: 'Mi primer step'
+        run: python eati.py EATI 2023
+
+  job2:
+    name: Job2
+    runs-on: windows-latest
+    steps: 
+      - name: 'Mi segundo step'
+        uses: echo Hola mundo
