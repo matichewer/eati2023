@@ -18,9 +18,9 @@ jobs:
         run: python eati.py EATI 2023
 
 
-  job2:
-    name: Job2
-    runs-on: windows-latest
-    steps: 
-      - name: 'Mi segundo step'
-        uses: echo Hola mundo
+ # job2:
+ #   name: Job2
+ #   runs-on: windows-latest
+ #   steps: 
+ #     - name: 'Mi segundo step'
+ #       uses: echo Hola mundo
