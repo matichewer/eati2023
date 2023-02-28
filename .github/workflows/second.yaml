@@ -37,7 +37,7 @@ jobs:
 
   job5:
     name: 'Trabajo 5'
-    runs-on: mac-latest
+    runs-on: macos-latest
     needs: [job3, job4]
     steps:
       - run: echo "Fin workflow"
