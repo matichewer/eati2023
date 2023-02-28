@@ -11,8 +11,10 @@ jobs:
 
     # pasos que queremos q se ejecuten
     steps: 
-      - name: 'Mi primer step'
+      - name: 'Checkout repo'
         uses: actions/checkout@v2
+
+      - name: Ejecutar script de Python
         run: python eati.py EATI 2023
 
 
