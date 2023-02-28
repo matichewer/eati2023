@@ -8,7 +8,7 @@ jobs:
 
   job1:
     name: 'Test second.yaml'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps: 
       - name: 'Imprimir 2 lineas'
         run: |
