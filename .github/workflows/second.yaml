@@ -4,13 +4,13 @@ on:
     branches:
       - workflow2
 
-  jobs:
+jobs:
 
-    job1:
-      name: 'Mi primer job'
-      runs-on: ubuntu-latest
-      steps: 
-        - name: 'Imprimir 2 lineas'
-          run: |
-            echo "Mi nombre es Matias"
-            echo "Estoy haciendo un curso de GitHub Actions"
+  job1:
+    name: 'Mi primer job'
+    runs-on: ubuntu-latest
+    steps: 
+      - name: 'Imprimir 2 lineas'
+        run: |
+          echo "Mi nombre es Matias"
+          echo "Estoy haciendo un curso de GitHub Actions"
