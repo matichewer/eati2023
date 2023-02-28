@@ -2,7 +2,7 @@ name: Second
 on: 
   push:
     branches:
-      - workflow2
+      - workflows2
 
 jobs:
 
