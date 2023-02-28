@@ -22,8 +22,7 @@ jobs:
     name: 'Mi segundo job'
     runs-on: windows-latest
     steps: 
-      - name: 'Mi segundo step'
+      - name: 'Imprimir 2 lineas'
         run: |
-            Write-Output "::group::My title"
-            Write-Output "Inside group"
-            Write-Output "::endgroup::"
+          echo "Mi nombre es Matias"
+          echo "Estoy haciendo un curso de GitHub Actions"
