@@ -12,7 +12,9 @@ jobs:
     # pasos que queremos q se ejecuten
     steps: 
       - name: 'Mi primer step'
+        uses: actions/checkout@v2
         run: python eati.py EATI 2023
+
 
   job2:
     name: Job2
