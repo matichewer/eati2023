@@ -25,5 +25,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${PATH_FILE}
+          path: ${{ env.PATH_FILE }}
         
