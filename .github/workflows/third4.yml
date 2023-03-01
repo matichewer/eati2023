@@ -4,42 +4,46 @@ on:
     branches:
       - thirdday
 
-env:
+env:  
+  PATH: repo_profe
   FILE: main
 
 jobs:
   build:    
-    name: 'Build Job '
+    name: 'Build Job'
     runs-on: ubuntu-latest
     steps: 
-      - name: 'Checkout jmoyano/utious-meme@main'
+      # Descargo el repo del profe
+      - name: 'Checkout de jmoyano/utious-meme@main'
         uses: actions/checkout@v3
         with:
           repository: jmoyano/cautious-meme
           ref: main
-          path: ./main
+          path: ${{ env.PATH  }}
 
-      - name: Compilar main.c
-        run: gcc main/main.c -o main/$PATH_FILE
+      # Compilo y genero ejecutable
+      - name: 'Compilar main.c'
+        run: gcc ${PATH}/main.c -o ${PATH}/${FILE}
 
-      - name: Usando upload-artifact
+      # Subo el ejecutable
+      - name: 'Usando upload-artifact'
         uses: actions/upload-artifact@v3
         with:
-          name: Mi-artefacto
-          path: ${{ env.PATH_FILE }}
+          name: 'Mi-artefacto'
+          path: ${{ env.PATH }}/${{ env.FILE }}
 
   test:
-    name: Test Job  
+    name: 'Test Job'
     runs-on: ubuntu-latest
     needs: [build]
     steps:   
       - uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.PATH_FILE }}
+          path: ${{ env.PATH }}
       - run: ls
       - run: ls main
-      - run: ./${{ env.PATH_FILE }}
-    
+      - run: ./${{ env.PATH }}/${{ FILE }}
+      - run: tree
 
-        
+
