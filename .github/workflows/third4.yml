@@ -1,0 +1,29 @@
+name: Third4
+on: 
+  push:
+    branches:
+      - thirdday
+
+env:
+  PATH_FILE: main/main
+
+jobs:
+  build:    
+    name: 'Build Job '
+    runs-on: ubuntu-latest
+    steps: 
+      - name: 'Checkout jmoyano/utious-meme@main'
+        uses: actions/checkout@v3
+        with:
+          repository: jmoyano/cautious-meme
+          ref: main
+          path: ./main
+
+      - name: Compilar main.c
+        run: gcc main/main.c -o ${PATH_FILE}
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Mi-artefacto
+          path: ${PATH_FILE}
+        
