@@ -19,7 +19,7 @@ jobs:
         with:
           repository: jmoyano/cautious-meme
           ref: main
-          path: .main
+          path: ./main
 
       # Compilo y genero ejecutable
       - name: 'Compilar main.c'
