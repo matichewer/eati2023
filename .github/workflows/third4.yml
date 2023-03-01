@@ -5,7 +5,7 @@ on:
       - thirdday
 
 env:  
-  PATH: main
+  PATH_FILE: main
   FILE: main
 
 jobs:
