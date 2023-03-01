@@ -7,6 +7,7 @@ on:
 env:  
   PATH_FILE: repo_descargado
   FILE: ejecutable
+  FULL_FILE_PATH: ${{ env.PATH_FILE }}/${{ env.FILE }}
 
 jobs:
   build:    
@@ -23,14 +24,14 @@ jobs:
 
       # Compilo y genero ejecutable
       - name: 'Compilar main.c'
-        run: gcc ${PATH_FILE}/main.c -o ${PATH_FILE}/${FILE}
+        run: gcc ${FULL_FILE_PATH}.c -o ${FULL_FILE_PATH}
 
       # Subo el ejecutable
       - name: 'Usando upload-artifact'
         uses: actions/upload-artifact@v3
         with:
           name: 'Mi-artefacto'
-          path: ${{ env.PATH_FILE }}/${{ env.FILE }}
+          path: ${{ env.FULL_FILE_PATH }}
 
   test:
     name: 'Test Job'
@@ -43,7 +44,7 @@ jobs:
           path: ${{ env.PATH_FILE }}
       - run: ls
       - run: ls ${PATH_FILE}
-      - run: ./${{ env.FILE }}
+      - run: ./${{ env.FULL_FILE_PATH }}
       - run: tree
 
 
