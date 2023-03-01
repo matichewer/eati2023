@@ -7,7 +7,7 @@ on:
 env:  
   PATH_FILE: repo_descargado
   FILE: ejecutable
-  FULL_FILE_PATH: ${{ env.PATH_FILE }}/${{ env.FILE }}
+  FULL_FILE_PATH: ${env.PATH_FILE}/${env.FILE}
 
 jobs:
   build:    
