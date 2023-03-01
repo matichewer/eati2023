@@ -25,6 +25,8 @@ jobs:
       - name: 'Compilar main.c'
         run: gcc ${PATH_FILE}/main.c -o ${PATH_FILE}/${FILE}
 
+      - run: tree
+
       # Subo el ejecutable
       - name: 'Usando upload-artifact'
         uses: actions/upload-artifact@v3
@@ -41,9 +43,7 @@ jobs:
         with:
           name: Mi-artefacto
           path: ./${{ env.PATH_FILE }}
-      - run: ls
-      - run: ls ${PATH_FILE}
-        #  - run: ./${{ env.PATH_FILE }}/${{ env.FILE }}
       - run: tree
+      - run: ./${{ env.PATH_FILE }}/${{ env.FILE }}
 
 
