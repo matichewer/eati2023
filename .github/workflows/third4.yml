@@ -27,7 +27,7 @@ jobs:
     
       # Veo todo lo que hay
       - name: 'Veo el contenido del directorio con "tree"'
-      - run: tree
+        run: tree
 
       # Subo el ejecutable
       - name: 'Usando upload-artifact'
