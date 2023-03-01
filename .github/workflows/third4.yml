@@ -36,7 +36,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.PATH_FILE }}
+          path: ${{ env.PATH_FILE }} / main
       - run: ls
       - run: ls main
       - run: ls main/main
