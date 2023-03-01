@@ -8,7 +8,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ MI_SECRETO }}
+      - run: echo ${{secrets.MI_SECRETO}}
         
 
 
