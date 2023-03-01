@@ -5,7 +5,7 @@ on:
       - thirdday
 
 env:  
-  PATH: repo_profe
+  PATH: main
   FILE: main
 
 jobs:
