@@ -6,14 +6,13 @@ on:
 
 env:  
   PATH_FILE: repo_descargado
-  FILE: ejecutable
+  FILE: main
 
 jobs:
   build:    
     name: 'Build Job'
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${FULL_FILE_PATH}
       # Descargo el repo del profe
       - name: 'Checkout de jmoyano/cautious-meme@main'
         uses: actions/checkout@v3
@@ -41,7 +40,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.PATH_FILE }}
+          path: .
       - run: ls
       - run: ls ${PATH_FILE}
       - run: ./${{ env.FILE }}
