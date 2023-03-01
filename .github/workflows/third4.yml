@@ -43,7 +43,7 @@ jobs:
           path: ${{ env.PATH }}
       - run: ls
       - run: ls main
-      - run: ./${{ env.PATH }}/${{ FILE }}
+      - run: ./${{ env.PATH }}/${{ env.FILE }}
       - run: tree
 
 
