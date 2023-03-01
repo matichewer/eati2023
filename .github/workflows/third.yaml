@@ -7,7 +7,7 @@ on:
 jobs:
 
   job1:
-    name: 'Trabajo 1'
+    name: 'Ver archivos de jmoyano/eati2023'
     runs-on: ubuntu-latest
     steps: 
       - name: 'Checkout repo de jmoyano/eati2023@main'
@@ -17,7 +17,7 @@ jobs:
           ref: main
           path: ./main
         
-      - name: Ejecuto cat
+      - name: Ejecuto cat en branch main
         run: cat main/message.txt
 
       - name: 'Checkout repo de jmoyano/eati2023@anotherbranch'
@@ -27,7 +27,7 @@ jobs:
           ref: anotherbranch
           path: ./anotherbranch
 
-      - name: Ejecuto cat
+      - name: Ejecuto cat en branch "anotherbranch"
         run: cat anotherbranch/message.txt
 
 
