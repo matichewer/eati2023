@@ -23,7 +23,7 @@ jobs:
           echo ${JOB_VARIABLE}
           echo ${STEP_VARIABLE}
           echo ${SCOPE}
-       - run: echo ${SCOPE}
+      - run: echo ${SCOPE}
 
   job2:
     runs-on: ubuntu-latest
