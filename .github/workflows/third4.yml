@@ -22,8 +22,23 @@ jobs:
       - name: Compilar main.c
         run: gcc main/main.c -o ${PATH_FILE}
 
-      - uses: actions/upload-artifact@v3
+      - name: Usando upload-artifact
+        uses: actions/upload-artifact@v3
         with:
-          name: Mi-artefacto
+          name: Mi-artefacto-1
           path: ${{ env.PATH_FILE }}
+
+  test:
+    name: Test Job  
+    runs-on: ubuntu-latest
+    steps:   
+      - uses: actions/download-artifact@v3
+        with:
+          name: Mi-artefacto-2
+          path: ${{ env.PATH_FILE }}
+      - run: ls
+      - run: ls main
+      - run: ./${{ env.PATH_FILE }}
+    
+
         
