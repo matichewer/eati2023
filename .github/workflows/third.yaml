@@ -26,7 +26,6 @@ jobs:
           repository: jmoyano/eati2023@anotherbranch
           ref: anotherbranch
           path: ./anotherbranch
-        run: cat message.txt
 
       - name: Ejecuto cat
         run: ls
