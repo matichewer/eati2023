@@ -13,7 +13,8 @@ jobs:
   build:    
     name: 'Build Job'
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - run: echo ${FULL_FILE_PATH}
       # Descargo el repo del profe
       - name: 'Checkout de jmoyano/cautious-meme@main'
         uses: actions/checkout@v3
