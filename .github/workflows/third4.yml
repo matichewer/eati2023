@@ -44,6 +44,9 @@ jobs:
           name: Mi-artefacto
           path: ./${{ env.PATH_FILE }}
       - run: tree
+
+      - name: Change file permissions
+        run: chmod +x ./${{ env.PATH_FILE }}/${{ env.FILE }}
       - run: ./${{ env.PATH_FILE }}/${{ env.FILE }}
 
 
