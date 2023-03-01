@@ -1,0 +1,46 @@
+name: Third2
+on: 
+  push:
+    branches:
+      - thirdday
+
+env:
+  WORKFLOW_VARIABLE: valor_workflow
+  SCOPE: valor_scope_workflow
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VARIABLE: valor_job
+      SCOPE: valor_scope_job
+    steps:
+      - env:
+          STEP_VARIABLE: valor_step_en_step
+          SCOPE: valor_scope_en_step
+        run: |
+          echo ${WORKFLOW_VARIABLE}
+          echo ${JOB_VARIABLE}
+          echo ${STEP_VARIABLE}
+          echo ${SCOPE}
+       - run: echo ${SCOPE}
+
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${SCOPE}
+        
+
+
+
+    
+
+
+        
+        
+
+
+
+
+
+
