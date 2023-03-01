@@ -1,0 +1,35 @@
+name: Third
+on: 
+  push:
+    branches:
+      - thirdday
+
+jobs:
+
+  job1:
+    name: 'Trabajo 1'
+    runs-on: ubuntu-latest
+    steps: 
+      - name: 'Checkout repo de jmoyano/eati2023@main'
+        uses: actions/checkout@v3
+        with:
+          repository: jmoyano/eati2023@main
+          ref: main
+          path: ./main
+        run: cat message.txt
+
+      - name: 'Checkout repo de jmoyano/eati2023@anotherbranch'
+        uses: actions/checkout@v3
+        with:
+          repository: jmoyano/eati2023@anotherbranch
+          ref: anotherbranch
+          path: ./anotherbranch
+        run: cat message.txt
+
+
+
+
+
+
+
+
