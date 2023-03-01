@@ -24,7 +24,9 @@ jobs:
       # Compilo y genero ejecutable
       - name: 'Compilar main.c'
         run: gcc ${PATH_FILE}/main.c -o ${PATH_FILE}/${FILE}
-
+    
+      # Veo todo lo que hay
+      - name: 'Veo el contenido del directorio con "tree"'
       - run: tree
 
       # Subo el ejecutable
@@ -43,10 +45,20 @@ jobs:
         with:
           name: Mi-artefacto
           path: ./${{ env.PATH_FILE }}
-      - run: tree
 
-      - name: Change file permissions
+      # Veo todo lo que hay
+      - name: 'Veo el contenido del directorio con "tree"'
+        run: tree
+
+      - name: 'Le doy permiso de ejecucion al archivo ejecutable'
         run: chmod +x ./${{ env.PATH_FILE }}/${{ env.FILE }}
-      - run: ./${{ env.PATH_FILE }}/${{ env.FILE }}
 
+      - name: 'Ejecuto el ejecutable y muestro cartel de exito'
+        run: |
+          ./${{ env.PATH_FILE }}/${{ env.FILE }}
+          if [ $? -eq 0 ]; then # Verifica si el código de salida es 0
+            echo "Éxito" # Si el código de salida es 0, imprime "Éxito"
+          else
+            echo "Error" # Si el código de salida no es 0, imprime "Error"
+          fi
 
