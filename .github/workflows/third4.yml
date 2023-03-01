@@ -5,8 +5,8 @@ on:
       - thirdday
 
 env:  
-  PATH_FILE: main
-  FILE: main
+  PATH_FILE: repo_descargado/
+  FILE: ejecutable
 
 jobs:
   build:    
@@ -19,18 +19,18 @@ jobs:
         with:
           repository: jmoyano/cautious-meme
           ref: main
-          path: ./main
+          path: ./${{ PATH_FILE }}
 
       # Compilo y genero ejecutable
       - name: 'Compilar main.c'
-        run: gcc ${PATH}/main.c -o ${PATH}/${FILE}
+        run: gcc ${PATH_FILE}/main.c -o ${PATH_FILE}/${FILE}
 
       # Subo el ejecutable
       - name: 'Usando upload-artifact'
         uses: actions/upload-artifact@v3
         with:
           name: 'Mi-artefacto'
-          path: ${{ env.PATH }}/${{ env.FILE }}
+          path: ${{ env.PATH_FILE }}${{ env.FILE }}
 
   test:
     name: 'Test Job'
@@ -40,10 +40,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: Mi-artefacto
-          path: ${{ env.PATH }}
+          path: ${{ env.PATH_FILE }}
       - run: ls
       - run: ls main
-      - run: ./${{ env.PATH }}/${{ env.FILE }}
+      - run: ./${{ env.FILE }}
       - run: tree
 
 
