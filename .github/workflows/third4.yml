@@ -20,7 +20,7 @@ jobs:
           path: ./main
 
       - name: Compilar main.c
-        run: gcc main/main.c -o ${PATH_FILE}
+        run: gcc main/main.c -o $PATH_FILE
 
       - name: Usando upload-artifact
         uses: actions/upload-artifact@v3
