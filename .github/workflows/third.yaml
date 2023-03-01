@@ -18,7 +18,7 @@ jobs:
           path: ./main
         
       - name: Ejecuto cat
-        run: ls
+        run: ls main
 
       - name: 'Checkout repo de jmoyano/eati2023@anotherbranch'
         uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           path: ./anotherbranch
 
       - name: Ejecuto cat
-        run: ls
+        run: ls anotherbranch
 
 
 
