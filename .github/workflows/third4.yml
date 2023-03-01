@@ -5,7 +5,7 @@ on:
       - thirdday
 
 env:  
-  PATH_FILE: repo_descargado/
+  PATH_FILE: repo_descargado
   FILE: ejecutable
 
 jobs:
