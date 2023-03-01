@@ -42,7 +42,7 @@ jobs:
           name: Mi-artefacto
           path: ${{ env.PATH_FILE }}
       - run: ls
-      - run: ls main
+      - run: ls ${PATH_FILE}
       - run: ./${{ env.FILE }}
       - run: tree
 
