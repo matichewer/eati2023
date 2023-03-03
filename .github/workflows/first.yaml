@@ -1,0 +1,28 @@
+name: First
+on: [ "push" ]
+
+# los jobs corren todos en paralelo
+jobs:
+  job1:
+    name: 'Mi primer job'
+
+    # cada job puede ejecutarse en el SO que yo quiera
+    runs-on: ubuntu-latest
+
+    # pasos que queremos q se ejecuten
+    steps: 
+      - name: 'Checkout repo'
+        uses: actions/checkout@v3
+
+      - name: Ejecuto mi primer script de Python
+        run: python eati.py EATI 2023
+
+
+  job2:
+    name: 'Mi segundo job'
+    runs-on: windows-latest
+    steps: 
+      - name: 'Imprimir 2 lineas'
+        run: |
+          echo "Mi nombre es Matias"
+          echo "Estoy haciendo un curso de GitHub Actions"

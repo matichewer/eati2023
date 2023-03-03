@@ -1,0 +1,64 @@
+name: Third4
+on: 
+  push:
+    branches:
+      - thirdday
+
+env:  
+  PATH_FILE: repo_descargado
+  FILE: main
+
+jobs:
+  build:    
+    name: 'Build Job'
+    runs-on: ubuntu-latest
+    steps:
+      # Descargo el repo del profe
+      - name: 'Checkout de jmoyano/cautious-meme@main'
+        uses: actions/checkout@v3
+        with:
+          repository: jmoyano/cautious-meme
+          ref: main
+          path: ./${{ env.PATH_FILE }}
+
+      # Compilo y genero ejecutable
+      - name: 'Compilar main.c'
+        run: gcc ${PATH_FILE}/main.c -o ${PATH_FILE}/${FILE}
+    
+      # Veo todo lo que hay
+      - name: 'Veo el contenido del directorio con "tree"'
+        run: tree
+
+      # Subo el ejecutable
+      - name: 'Usando upload-artifact'
+        uses: actions/upload-artifact@v3
+        with:
+          name: 'Mi-artefacto'
+          path: ${{ env.PATH_FILE }}/${{ env.FILE }}
+
+  test:
+    name: 'Test Job'
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:   
+      - uses: actions/download-artifact@v3
+        with:
+          name: Mi-artefacto
+          path: ./${{ env.PATH_FILE }}
+
+      # Veo todo lo que hay
+      - name: 'Veo el contenido del directorio con "tree"'
+        run: tree
+
+      - name: 'Le doy permiso de ejecucion al archivo ejecutable'
+        run: chmod +x ./${{ env.PATH_FILE }}/${{ env.FILE }}
+
+      - name: 'Ejecuto el ejecutable y muestro cartel de exito'
+        run: |
+          ./${{ env.PATH_FILE }}/${{ env.FILE }}
+          if [ $? -eq 0 ]; then # Verifica si el código de salida es 0
+            echo "Éxito" # Si el código de salida es 0, imprime "Éxito"
+          else
+            echo "Error" # Si el código de salida no es 0, imprime "Error"
+          fi
+
